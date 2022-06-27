@@ -22,6 +22,6 @@ En els següents apartats ho veurem amb més detall. L'estructura serà la segü
 1. [Introducció](intro.md)
 1. [Dades](dades.md)
 1. [Model](model.md)
-1. [Conclusions] (conclusions.md)
+1. [Conclusions](conclusions.md)
 </div>
 
