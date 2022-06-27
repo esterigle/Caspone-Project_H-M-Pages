@@ -19,7 +19,7 @@ En els següents apartats ho veurem amb més detall. L'estructura serà la segü
 
 <div class="code-example" markdown="1">
 <h4>Índex</h4>
-1. Introducció
+1. [Introducció](intro.md)
 1. [Dades](dades.md)
 1. Item 3
 </div>
