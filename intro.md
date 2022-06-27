@@ -20,3 +20,5 @@ Intro
 1. Item 2
 1. Item 3
 ```
+## [Introducció](intro.md)
+## [Dades](dades.md)
