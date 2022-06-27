@@ -20,7 +20,7 @@ Dades
 1. Clients
 </details>
 
-<details markdown="block">
+<details>
   <summary>
     Índex
   </summary>
