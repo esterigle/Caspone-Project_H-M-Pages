@@ -37,3 +37,11 @@ Dades
 1. Clients
 </>
 
+
+<div class="code-example" markdown="1">
+  <summary>
+    Índex
+  </summary>
+1. Articles
+1. Clients
+</div>
