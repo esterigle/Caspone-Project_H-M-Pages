@@ -10,12 +10,17 @@ nav_order: 1
 Capstone Project - Data Science and Machine Learning Postgraduate Course at Universitat de Barcelona, 2021-22
 {: .fs-6 .fw-300 }
 
-En aquesta web s'explica el projecte final del Postgrau Introducció a la Data Science i al Machine Learning de la UB, realitzat per 
+En aquesta web s'explica el projecte final del Postgrau Introducció a la Data Science i al Machine Learning de la UB realitzat per la Raquel Dominguez, l'Ester Iglesias i l'Ana Berta Vegas. 
 
-INTRODUCCIÓ A LA DATA SCIENCE I AL MACHINE LEARNING (2021-2022)
+En poques paraules, el projecte es tracta d'una recomanació basada en usuaris. És a dir, donat un conjunt d'interaccions usuari-ítem, la idea és proporcionar una classificació ordenada per a cada usuari.
 
-## [Introducció](intro.md)
-## [Dades](dades.md)
+En els següents apartats ho veurem amb més detall. L'estructura serà la següent:
 
-***
-El código fuente disponible en [github](https://github.com/esterigle/prova)
+### Índex
+
+<div class="code-example" markdown="1">
+### Índex
+1. Introducció
+1. [Dades](dades.md)
+1. Item 3
+</div>
