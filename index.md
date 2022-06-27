@@ -10,9 +10,9 @@ nav_order: 1
 Capstone Project - Data Science and Machine Learning Postgraduate Course at Universitat de Barcelona, 2021-22
 {: .fs-6 .fw-300 }
 
-# Capstone Project - H&M
+En aquesta web s'explica el projecte final del Postgrau Introducció a la Data Science i al Machine Learning de la UB, realitzat per 
 
-En aquesta web 
+INTRODUCCIÓ A LA DATA SCIENCE I AL MACHINE LEARNING (2021-2022)
 
 ## [Introducció](intro.md)
 ## [Dades](dades.md)
