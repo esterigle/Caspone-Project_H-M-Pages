@@ -28,4 +28,4 @@ plugins:
   - jekyll-relative-links
   - jekyll-remote-theme
 
-search_enabled: false
+# search_enabled: false
