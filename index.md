@@ -1,7 +1,8 @@
 
-# Capstone Project
+# Capstone Project - H&M
 
 ## [Introducció](intro.md)
+## [Dades](dades.md)
 
 ***
 El código fuente disponible en [github](https://github.com/lumaro77/UB-DataScience-CapstoneProject).
