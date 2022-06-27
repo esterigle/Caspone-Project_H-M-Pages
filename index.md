@@ -16,10 +16,9 @@ En poques paraules, el projecte es tracta d'una recomanació basada en usuaris. 
 
 En els següents apartats ho veurem amb més detall. L'estructura serà la següent:
 
-### Índex
 
 <div class="code-example" markdown="1">
-### Índex
+<h4>Índex</h4>
 1. Introducció
 1. [Dades](dades.md)
 1. Item 3
