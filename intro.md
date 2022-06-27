@@ -8,17 +8,13 @@ nav_order: 1
 ## Introducció
 Intro
 
-## Ordered list
+## Índex
 
 <div class="code-example" markdown="1">
-1. Item 1
-1. Item 2
+1. Introducció
+1. [Dades](dades.md)
 1. Item 3
 </div>
-```markdown
-1. Item 1
-1. Item 2
-1. Item 3
-```
+
 ## [Introducció](intro.md)
 ## [Dades](dades.md)
