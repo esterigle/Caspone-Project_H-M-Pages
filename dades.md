@@ -11,4 +11,4 @@ has_children: true
 
 Dades
 
-# {: .no_toc .text-delta }
+{: .no_toc .text-delta }
