@@ -1,8 +1,11 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/esterigle/prova/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+# Capstone Project
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## [Introducció](intro.md)
+
+***
+Proyecto presentado por **Lucas Martínez Rodrigo**.
+El código fuente para reproducir estos experimentos se encuentra disponible en [github](https://github.com/lumaro77/UB-DataScience-CapstoneProject).
 
 ## Welcome to GitHub Pages
 
