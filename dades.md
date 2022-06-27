@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuration
+title: Dades
 nav_order: 2
 ---
 
