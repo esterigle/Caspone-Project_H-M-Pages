@@ -7,7 +7,7 @@ nav_order: 2
 # Introducció
 {: .fs-9 }
 
-**H&M Group** és una de les empreses de moda més importants del món. Opera en 53 mercats *online* i té aproximadament 4850 botigues físiques. L'oferta de la botiga en línia és extramadament gran, amb una àmplia selecció de productes. Aquest fet pot provocar que els clients no trobin ràpidament l'article que els interessa i que, per tant, no facin cap compra. Per tal de solucionar aquest problema i millorar l'experiència de compra, proporcionar als consumidors productes recomanats és molt important. A més, prendre una decisió correcta també té implicacions molt positives per la sostenibilitat, ja que redueix les emissions del transport. 
+**H&M Group** és una de les empreses de moda més importants del món. Opera en 53 mercats *online* i té aproximadament 4850 botigues físiques. L'oferta de la botiga en línia és extremadament gran, amb una àmplia selecció de productes. Aquest fet pot provocar que els clients no trobin ràpidament l'article que els interessa i que, per tant, no facin cap compra. Per tal de solucionar aquest problema i millorar l'experiència de compra, proporcionar als consumidors productes recomanats és molt important. A més, prendre una decisió correcta també té implicacions molt positives per la sostenibilitat, ja que redueix les emissions del transport. 
 
 
 
