@@ -10,3 +10,13 @@ has_toc: false
 ## Dades
 
 Dades
+
+
+<details open markdown="block">
+  <summary>
+    Índex
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
