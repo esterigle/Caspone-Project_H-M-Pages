@@ -27,3 +27,13 @@ Dades
 1. Articles
 1. Clients
 </details>
+
+
+<>
+  <summary>
+    Índex
+  </summary>
+1. Articles
+1. Clients
+</>
+
