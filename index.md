@@ -24,3 +24,4 @@ En els següents apartats ho veurem amb més detall. L'estructura serà la segü
 1. [Model](model.md)
 1. [Conclusions] (conclusions.md)
 </div>
+
