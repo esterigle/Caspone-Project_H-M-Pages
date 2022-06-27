@@ -16,7 +16,6 @@ Dades
   <summary>
     Índex
   </summary>
-  {: .text-delta }
-1. TOC
-{:toc}
+1. Articles
+1. Clients
 </details>
