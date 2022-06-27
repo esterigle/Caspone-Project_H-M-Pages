@@ -18,16 +18,4 @@ En aquesta competició, H&M Group us convida a desenvolupar recomanacions de pro
 
 No hi ha idees preconcebudes sobre quina informació pot ser útil, és a dir, perquè ho esbrineu. Si voleu investigar un algorisme de tipus de dades categòrics o submergir-vos en l'aprenentatge profund de processament d'imatges i PNL, això depèn de vosaltres.
 
-amb 53 mercats en línia i aproximadament 4.850 botigues
-Dado un conjunto de interaciones usuario-item, proporcionar un ranking adecuado para cada usuario.
 
-## Índex
-
-<div class="code-example" markdown="1">
-1. Introducció
-1. [Dades](dades.md)
-1. Item 3
-</div>
-
-## [Introducció](intro.md)
-## [Dades](dades.md)
