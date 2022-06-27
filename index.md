@@ -12,7 +12,7 @@ Capstone Project - Data Science and Machine Learning Postgraduate Course at Univ
 
 En aquesta web s'explica el projecte final del Postgrau Introducció a la Data Science i al Machine Learning de la UB realitzat per la Raquel Dominguez, l'Ester Iglesias i l'Ana Berta Vegas. 
 
-En poques paraules, el projecte es tracta d'una recomanació basada en usuaris. És a dir, donat un conjunt d'interaccions usuari-ítem, la idea és proporcionar una classificació ordenada per a cada usuari.
+En poques paraules, el projecte es tracta d'una recomanació d'articles del *grup H&M* basada en usuaris. És a dir, donat un conjunt d'interaccions usuari-producte, la idea és proporcionar una classificació ordenada d'articles per a cada usuari.
 
 En els següents apartats ho veurem amb més detall. L'estructura serà la següent:
 
