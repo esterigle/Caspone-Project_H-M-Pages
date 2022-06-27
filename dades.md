@@ -19,3 +19,11 @@ Dades
 1. Articles
 1. Clients
 </details>
+
+<details markdown="block">
+  <summary>
+    Índex
+  </summary>
+1. Articles
+1. Clients
+</details>
