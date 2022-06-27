@@ -8,10 +8,13 @@ github_repo_url: "https://github.com/esterigle/prova"
 heading_anchors: true
 
 # Activate a "Back to top" link
-back_to_top: false
+back_to_top: true
 back_to_top_text: "Back to top"
-
 footer_content: "Raquel Domínguez, Ester Iglesias i Ana Berta Vegas."
+
+aux_links:
+  "Obrir el projecte a GitHub":
+    - "https://github.com/esterigle/prova"
 
 
 # Footer last edited timestamp
