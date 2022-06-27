@@ -12,3 +12,6 @@ has_children: true
 Dades
 
 {: .no_toc .text-delta }
+
+1. TOC
+   {:toc}
