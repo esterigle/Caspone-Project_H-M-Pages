@@ -17,8 +17,14 @@ El dataset és bastant complert i no hi ha cap variable que requereixi una trans
 
 A continuació, visualitzem alguna representació gràfica de les dades a estudiar, i en destaquem les observacions més interessants.
 
-En primer lloc, representem gràficament la quantitat de transaccions per dia, per veure com es comporta el nombre de compres al llarg del període de temps: 
+En primer lloc, representem gràficament la quantitat de transaccions per dia, per veure com es comporta el nombre de compres al llarg del període de temps (el canal 1 representa el canal físic, el 2 l'*online*)
 
 ![Transaccions per dia](transactions-day.png)
 
+Representem ara, la proporció de transaccions que es realitzen de manera física o *online*:
 
+![Transaccions físiques i online](channel-id.png)
+
+Finalment, observem les diferències significatives del nombre de compres a les botigues físiques i el nombre de compres en línia al llarg del temps:
+
+![Transaccions per dia i canal](channel-transactions.png)
