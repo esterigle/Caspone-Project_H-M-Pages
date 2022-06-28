@@ -22,4 +22,3 @@ En primer lloc, representem gràficament la quantitat de transaccions per dia, p
 ![Transaccions per dia](transactions-day.png)
 
 
-
