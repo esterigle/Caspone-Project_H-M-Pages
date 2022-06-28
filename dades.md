@@ -19,4 +19,5 @@ En particular, treballarem amb els següents 3 conjunts de dades:
 -	[Articles](dades-articles.md)
 -	[Clients](dades-clients.md)
 
+A continuació, en els respectius subapartats, veurem en més detall quina informació conté cada un dels conjunts.
 
