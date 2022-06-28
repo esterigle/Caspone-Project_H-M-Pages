@@ -12,3 +12,8 @@ El conjunt de transaccions conté informació sobre un historial de compres. En 
 | article_id        | Identificador de l'article que s'ha comprat                                       |
 | price             | Preu de la transacció                                                             |
 | sales_channel_id  | Canal mitjançant el qual s'ha realitzat la transacció (botiga física o *online*)  |
+
+A continuació, visualitzem alguna representació gràfica de les dades a tractar, i en destaquem les observacions més interessants:
+
+
+
