@@ -34,3 +34,18 @@ El dataset d'articles conté informació sobre cada un dels productes disponible
 | garment_group_name             | Nom identificatiu del grup de peces de l'article                                  |
 | detail_desc                    | Descripció de l'article                                                           |
 
+Observem que moltes de les variables estan repetides, és a dir, hi ha la mateixa informació de dues maneres diferents (amb el codi identificatiu i amb el nom), pel que hem decidit treballar únicament amb el codi.
+
+Veiem gràficament un petit resum de com són les dades a estudiar.
+
+En primer lloc, representem el nombre d'articles per cada tipus de producte:
+
+![Nombre d'articles per tipus de producte](product-type.png)
+
+A continuació, veiem el nombre d'articles per color:
+
+![Nombre d'articles per color](perceived-colour-master.png)
+
+Per últim, representem el nombre d'articles per secció o departament:
+
+![Nombre d'articles per secció](index-name.png)
