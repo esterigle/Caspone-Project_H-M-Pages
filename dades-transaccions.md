@@ -19,7 +19,7 @@ A continuació, visualitzem alguna representació gràfica de les dades a estudi
 
 En primer lloc, representem gràficament la quantitat de transaccions per dia, per veure com es comporta el nombre de compres al llarg del període de temps: 
 
-![Transaccions per dia](transaccions-dia.png)
+![Transaccions per dia](transactions-day.png)
 
 
 
