@@ -8,28 +8,32 @@ parent: Dades
 
 El dataset d'articles conté informació sobre cada un dels productes disponible per a la compra. En particular, per a cada article hi ha la següent informació:
 
-| article_id             | Identificador del client                                                          |
-| product_code                      | Informació sobre si el client rep *Fashion News*                                  |
-| prod_name                  | Informació sobre si el client rep comunicació de les revistes de moda             |
-| product_type_no      | Informació sobre l'estat del *Club Member Status*                                 |
-| product_type_name  | Informació sobre la freqüència en la que el client mira les notícies de moda      |
-| product_group_name                     | Edat del client                                                                   |
-| graphical_appearance_no             | Codi postal del client                                                            |
-| graphical_appearance_name             | Identificador del client                                                          |
-| colour_group_code                      | Informació sobre si el client rep *Fashion News*                                  |
-| colour_group_name                  | Informació sobre si el client rep comunicació de les revistes de moda             |
-| perceived_colour_value_id      | Informació sobre l'estat del *Club Member Status*                                 |
-| perceived_colour_value_name  | Informació sobre la freqüència en la que el client mira les notícies de moda      |
-| perceived_colour_master_id                     | Edat del client                                                                   |
-| perceived_colour_master_name             | Codi postal del client    |
-| department_no             | Identificador del client                                                          |
-| department_name                      | Informació sobre si el client rep *Fashion News*                                  |
-| index_code                  | Informació sobre si el client rep comunicació de les revistes de moda             |
-| index_name      | Informació sobre l'estat del *Club Member Status*                                 |
-| index_group_no  | Informació sobre la freqüència en la que el client mira les notícies de moda      |
-| index_group_name                     | Edat del client                                                                   |
-| section_no             | Codi postal del client    |
-| section_name             | Identificador del client                                                          |
-| garment_group_no                      | Informació sobre si el client rep *Fashion News*                                  |
-| garment_group_name                  | Informació sobre si el client rep comunicació de les revistes de moda             |
-| detail_desc      | Informació sobre l'estat del *Club Member Status*                                 |
+| article_id                     | Identificador de l'article                                                        |
+| product_code                   | Codi identificatiu de l'article                                                   |
+| prod_name                      | Nom de l'article                                                                  |
+| product_type_no                | Codi identificatiu del tipus de producte                                          |
+| product_type_name              | Nom del tipus del producte                                                        |
+| product_group_name             | Nom del grup del producte                                                         |
+| graphical_appearance_no        | Codi identificatiu de l'aparença gràfica                                          |
+| graphical_appearance_name      | Nom de l'aparença gràfica                                                         |
+| colour_group_code              | Codi identificatiu del color del producte                                         |
+| colour_group_name              | Nom del color del producte                                                        |
+| perceived_colour_value_id      | Codi identificatiu del grup de color del producte                                 |
+| perceived_colour_value_name    | Nom del grup de color del producte                                                |
+| perceived_colour_master_id     | Codi identificatiu del *colour master* del producte                               |
+| perceived_colour_master_name   | Nom del *colour master* del producte                                              |
+| department_no                  | Codi identificatiu del departament de l'article                                   |
+| department_name                | Nom del departament de l'article                                                  |
+| index_code                     | Codi identificatiu de l'índex de l'article                                        |
+| index_name                     | Nom de l'índex de l'article                                                       |
+| index_group_no                 | Codi identificatiu del grup d'índex del producte                                  |
+| index_group_name               | Nom del grup d'índex del producte                                                 |
+| section_no                     | Codi identificatiu de la secció del producte                                      |
+| section_name                   | Nom de la secció del producte                                                     |
+| garment_group_no               | Codi identificatiu del grup de peces de l'article                                 |
+| garment_group_name             | Nom identificatiu del grup de peces de l'article                                  |
+| detail_desc                    | Descripció de l'article                                                           |
+
+
+garment_group_no: codi de grup de peces
+garment_group_name:nom de grup de peces
