@@ -15,6 +15,4 @@ El conjunt de transaccions conté informació sobre un historial de compres. En 
 | price             | Preu de la transacció                                                             |
 | sales_channel_id  | Canal mitjançant el qual s'ha realitzat la transacció (botiga física o *online*)  |
 
-
-sales_channel_id
 </div>
