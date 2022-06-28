@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Articles
+title: Clients
 parent: Dades
 ---
 
