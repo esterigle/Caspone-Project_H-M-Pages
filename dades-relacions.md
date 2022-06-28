@@ -15,9 +15,7 @@ En primer lloc, representem quins són els 10 articles més venguts:
 ![TOP 10 Articles](10-articles.png)
 
 A continucació, quins són els tipus de productes més venguts:
-
-
+![TOP 10 Tipus](10-product-type.png)
 
 Finalment, quins són els colors més venguts:
-
 ![TOP 10 Colors](10-colors.png)
