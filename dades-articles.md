@@ -34,6 +34,3 @@ El dataset d'articles conté informació sobre cada un dels productes disponible
 | garment_group_name             | Nom identificatiu del grup de peces de l'article                                  |
 | detail_desc                    | Descripció de l'article                                                           |
 
-
-garment_group_no: codi de grup de peces
-garment_group_name:nom de grup de peces
