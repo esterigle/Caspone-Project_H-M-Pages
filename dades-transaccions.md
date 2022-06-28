@@ -13,7 +13,13 @@ El conjunt de transaccions conté informació sobre un historial de compres. En 
 | price             | Preu de la transacció                                                             |
 | sales_channel_id  | Canal mitjançant el qual s'ha realitzat la transacció (botiga física o *online*)  |
 
-A continuació, visualitzem alguna representació gràfica de les dades a tractar, i en destaquem les observacions més interessants:
+El dataset és bastant complert i no hi ha cap variable que requereixi una transformació destacable.  
+
+A continuació, visualitzem alguna representació gràfica de les dades a estudiar, i en destaquem les observacions més interessants.
+
+En primer lloc, representem gràficament la quantitat de transaccions per dia, per veure com es comporta el nombre de compres al llarg del període de temps: 
+
+![Transaccions per dia](transaccions-dia.png)
 
 
 
