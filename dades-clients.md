@@ -17,18 +17,10 @@ El dataset de clients conté informació sobre cada un dels clients. En particul
 | postal_code             | Codi postal del client                                                            |
 
 
-El dataset és bastant complert i no hi ha cap variable que requereixi una transformació destacable.  
+En aquest cas, totes les variables contenen valors nuls, excepte el customer_id i el postal_code. Per a tractar aquests valors, les transformacions realitzades no són rellevants, però considerem interessant esmentar-les. 
 
-A continuació, visualitzem alguna representació gràfica de les dades a estudiar, i en destaquem les observacions més interessants.
+Pel que fa a l'edat, el que s'ha fet es substituir els valors nuls per la mediana de la resta de valors. En canvi, pel que fa a les variables categòriques, és a dir la resta de variables, hem afegit un nou valor significatiu.
 
-En primer lloc, representem gràficament la quantitat de transaccions per dia, per veure com es comporta el nombre de compres al llarg del període de temps (el canal 1 representa el canal físic, el 2 l'*online*)
+De l'anàlisi de les dades realitzat, en destaquem el següent gràfic, que mostra el nombre de clients per cada edat:
 
-![Transaccions per dia](transactions-day.png)
-
-Representem ara, la proporció de transaccions que es realitzen de manera física o *online*:
-
-![Transaccions físiques i online](channel-id.png)
-
-Finalment, observem les diferències significatives del nombre de compres a les botigues físiques i el nombre de compres en línia al llarg del temps:
-
-![Transaccions per dia i canal](channel-transactions.png)
+![Cliens per edat](customers-age.png)
