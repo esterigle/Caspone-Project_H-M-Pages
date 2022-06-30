@@ -29,8 +29,8 @@ En un sistema de recomanació, una bona manera de dividir-lo és en un moment in
 
 
 ```python
-  transactions = transactions[transactions['t_dat'] >='2019-09-22']
-  transactions_train = transactions[transactions['t_dat'] <'2020-09-01']
+  transactions_train = transactions[transactions['t_dat'] <= '2020-09-01']
+  transactions_test = transactions[transactions['t_dat'] >'2020-09-01']
 ```
 
 A continuació, busquem els clients i els articles únics presents dels datatset *customers* i *articles* . És important que tant els clients com els articles siguin únics perquè necessitem mapejar els valors de les variables categòriques per després utilitzar-les en el nostre model com a vectors. És a dir, necessitem un diccionari d'aquestes dues variables per crear el nostre model. Són elements vectoritzats que s'inseriran i faran servir com a referència a les capes del model
@@ -53,7 +53,7 @@ En particular, pel nostre cas:
 
 
 ### Query Model
-Per definir el *Query Model* utilitzem les següents capes de Keras:
+Per definir el *Query Model* utilitzem les següents capes de Keras de manera seqüencial:
 - *StringLookup*: és una capa de preprocessament que mapeja característiques de cadena amb índexs enters, en aquest cas ens permet convertir els ID dels clients en números enters. 
 - *Embedding*: 
 
@@ -78,10 +78,9 @@ La creació del *Candidate Model* segueix el mateix procés que el *Query Model*
   ])
 ```
 
-Ara que ja tenim els dos submodels creats, els unifiquem per crear el nostre model de recomanació. 
+Ara que ja tenim els dos submodels creats, els unifiquem per crear el model de recomanació. 
 
-TensorFlow Recommenders exposa una classe de model base (tfrs.models.Model) que facilita la creació dels models. El que cal fer és configurar els components en el mètode init i implementar el mètode compute_loss, agafant les característiques sense processar i tornant un valor de pèrdua.
-El model base s'encarrega de crear el cicle d'entrenament apropiat per tal que s'ajusti al nostre model.
+~~TensorFlow Recommenders exposa una classe de model base (tfrs.models.Model) que facilita la creació dels models. El que cal fer és configurar els components en el mètode init i implementar el mètode compute_loss, agafant les característiques sense processar i tornant un valor de pèrdua. El model base s’encarrega de crear el cicle d’entrenament apropiat per tal que s’ajusti al nostre model.~~
 
 ```python   
 class RetrivalModel(tfrs.Model): 
@@ -105,14 +104,19 @@ class RetrivalModel(tfrs.Model):
         return self.task(customer_embeddings, article_embeddings,compute_metrics=not training)
 ```
 
-FactorizedTopK() calcula les mètriques dels K candidats principals que apareixen mitjançant un model de recuperació.
+Observem que hem utilitzat *FactorizedTopK* com a mètrica, ja que és una funció que calcula les mètriques dels K candidats principals que apareixen mitjançant un model de recomanació.
 
 Finalment, amb el model ja definit, podem ajustar i avaluar el model utilitzant les crides estàndard de Keras:
-model = RetrivalModel(customer_model, article_model)
-model.compile(optimizer=tf.keras.optimizers.Adagrad(learning_rate=0.1))
 
-Podem veure que el nostre model te un learning rate (rati de aprenentatge) de 0.1. Aquest es un altre hiperparàmetre del model, el qual hem fet proves per buscar el paràmetre més òptim per aquest.
-El learning rate és el percentatge de canvi amb què s'actualitzen els pesos en cada iteració, en altres paraules, cada que es realitza una iteració en el procés d'entrenament s'han d'actualitzar els pesos de l'entrada per poder donar cada cop una millor aproximació. Si posem un valor molt proper a un podria cometre errors i no obtindríem un model de predicció adequat, però si posem un valor molt petit aquest entrenament podria ser massa trigat per acostar-nos a una predicció acceptable.
+```python
+  model = RetrivalModel(customer_model, article_model)
+  model.compile(optimizer=tf.keras.optimizers.Adagrad(learning_rate=0.1))
+```
+
+Observem que hem utilitzat l'optimitzador *Adagrad* amb un *learning rate* de 0.1 (també després de provar diferents opcions d'aquests).
+
+L'optimitzador *Adagrad* (Algorisme de Gradient Adaptatiu) es defeinex com és una modificació de l'*Stochastic Gradient Descent* on s'utilitzen diferents taxes d'aprenentatge per a les variables tenint en compte gradient acumulat en cadascuna.
+
 
 Per altra banda, apliquem shuffle, batch i cache en els conjunts definits anteriorment de test i train. Podem veure que el batch es un altre híperparàmetre, el qual també hem fet proves per trobar el més adequat. Que es BACH (crear grupos...)
 
