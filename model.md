@@ -117,25 +117,23 @@ Observem que hem utilitzat l'optimitzador *Adagrad* amb un *learning rate* de 0.
 
 L'optimitzador *Adagrad* (Algorisme de Gradient Adaptatiu) es defeinex com és una modificació de l'*Stochastic Gradient Descent* on s'utilitzen diferents taxes d'aprenentatge per a les variables tenint en compte gradient acumulat en cadascuna.
 
+Amb el model definit, l'entrenem. Per fer-ho hem el valor de 5 l'hiperparàmetre *epoch* (iteracions del cicle complet d'entrenament)
 
-Per altra banda, apliquem shuffle, batch i cache en els conjunts definits anteriorment de test i train. Podem veure que el batch es un altre híperparàmetre, el qual també hem fet proves per trobar el més adequat. Que es BACH (crear grupos...)
-
-Ara ja podem començar amb l’entrenament. Per això hem de decidir el híperparàmetre de quantes iteració ha de tenir el model (epoch). Un epoch implica un cicle complet del conjunt de dades d'entrenament que es compon de lots i iteracions del conjunt de dades, i el nombre d'epoch necessaris perquè un model s'executi de manera eficient es basa en les dades en si i l'objectiu del model.
-Les xarxes neuronals d'aprenentatge profund con la nostra s'entrenen mitjançant l'algoritme de descens de gradient estocàstic. El learning rate juntament amb el nombre d'iteracions (epoch) són els paraments que s'utilitzen a l'algorisme del gradient descendent. El descens del gradient estocàstic és un algorisme d'optimització que estima el gradient d'error per a l'estat actual del model utilitzant exemples del conjunt de dades d'entrenament i, a continuació, actualitza els pesos del model mitjançant l'algorisme de retropropagació d'errors, anomenat simplement retropropagació.
-
+```python
 history = model.fit(
     train_ds,    
-    epochs=num_epochs,
+    epochs=5,
     verbose=1)
-
-A continuació, avaluem el model. ¿no ha ido como qeremos?
-model.evaluate(test_ds, return_dict=True)
+```
 
 ## Ranking Statge
-En aquesta fase, com hem explicat al principi s'analitzen les sortides del Retrieval Model i s'afinen per seleccionar el millor conjunt de recomanacions. En aquest cas, per recuperar els millors candidats d'una consulta determinada, utilitzarem la llibreria de TensorFlow ScaNN. En concret, per cada usuari, recuperarem 12 etiquetes, que es corresponen als articles previstos que un client pot comprar en els següents 7 dies.
+En aquesta fase, com hem explicat al principi s'analitzen les sortides del Retrieval Model i s'afinen per seleccionar el millor conjunt de recomanacions. En aquest cas, per recuperar els millors candidats d'una consulta determinada, utilitzarem la llibreria de TensorFlow *ScaNN*. En concret, per cada usuari, recuperarem 12 etiquetes, que es corresponen als articles previstos que un client pot comprar en els següents 7 dies.
+
+```python
 scann_index = tfrs.layers.factorized_top_k.ScaNN(model.customer_model, k = 12 )
 scann_index.index_from_dataset(
   tf.data.Dataset.zip((articles.batch(100), articles.batch(100).map(model.article_model)))
 )
+```
 
-ScanNN() troba índex de recuperació aproximat per a un model de recuperació factoritzat.
+*ScanNN()* és una funció s'utilitza per recuperar els millors candidats d'una consulta determinada.
