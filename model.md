@@ -56,7 +56,7 @@ En particular, pel nostre cas:
 ### Query Model
 Per definir el *Query Model* utilitzem les següents capes de Keras de manera seqüencial:
 - *StringLookup*: és una capa de preprocessament que mapeja característiques de cadena amb índexs enters, en aquest cas ens permet convertir els ID dels clients en números enters. 
-- *Embedding*: és una capa que converteix nombres enters positus en vactors densos de dimensió fixa.
+- *Embedding*: és una capa que converteix nombres enters positus en vectors densos de dimensió fixa.
 
 Així, per crear el model:
 ```python
@@ -81,7 +81,7 @@ La creació del *Candidate Model* segueix el mateix procés que el *Query Model*
 
 Ara que ja tenim els dos submodels creats, els unifiquem per crear el model de recomanació. 
 
-Per facilitar la creació del model, utilitzem la classe de TensorFlow Recommenders que exposa un model base (tfrs.models.Model). Aquest model base s'encarrega de crear el cicle d'entrenament apropiat per tal que es vagi ajustant. De manera que només cal configurar els components en el mètode *__init__* i implementar el mètode *compute_loss*.
+Per facilitar la creació del model, utilitzem la classe de TensorFlow Recommenders que exposa un model base (tfrs.models.Model). Aquest model base s'encarrega de crear el cicle d'entrenament apropiat per tal que es vagi ajustant. De manera que només cal configurar els components en el mètode *__init__* i implementar el mètode **compute_loss**.
 
 ```python   
 class RetrivalModel(tfrs.Model): 
