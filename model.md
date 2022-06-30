@@ -36,10 +36,13 @@ transactions_test.head()~~
 A continuació, busquem els clients i els articles únics presents dels datatset *customers* i *articles* . És important que tant els clients com els articles siguin únics perquè necessitem mapejar els valors de les variables categòriques per després utilitzar-les en el nostre model com a vectors. És a dir, necessitem un diccionari d'aquestes dues variables per crear el nostre model. Són elements vectoritzats que s'inseriran i faran servir com a referència a les capes del model
 
 <div class="code-example" markdown="1">
+```js
+// Javascript code with syntax highlighting.
   unic_customer_id = df_customer.customer_id.unique()
   unic_article_id = df_article.article_id.unique()
   article_slices = tf.data.Dataset.from_tensor_slices(dict(df_article[
   articles = article_slices.map(lambda x: x['article_id'])
+```
 </div>
 
 Retrival Stage
