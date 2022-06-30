@@ -52,31 +52,40 @@ En particular, pel nostre cas:
 ![Retrieval Model Aplicat](model2.png)
 
 
-En primer lloc, fixem la dimensió de l'embedding:
-embedding_dimension = 64
+### Query Model
+Per definir el *Query Model* utilitzem les següents capes de Keras:
+- *StringLookup*: és una capa de preprocessament que mapeja característiques de cadena amb índexs enters, en aquest cas ens permet convertir els ID dels clients en números enters. 
+- *Embedding*: 
 
-Aquesta es un híperparàmetre del nostre model, per tant, hem fet algunes proves per veure quina seria la dimensió de embedding que s’ajusta millor al nostre model. Finalment, podem concloure que es 64. 
-A continuació, definim els models dos submodels, el query model y el candidate model. Per crear el query model utilitzem les capes de preprocessament de Keras, que ens permet convertir els ID dels clients en números enters. Després, mitjançant la capa d'embedding, es converteixen en embeddings d'usuaris. 
-customer_model = tf.keras.Sequential([
-  tf.keras.layers.StringLookup(
-      vocabulary=unic_customer_id, mask_token=None),  
-  tf.keras.layers.Embedding(len(unic_customer_id) + 1, embedding_dimension)
-])
-La creació del candidate model segueix el mateix procés que el query model, però utilitzant ara la llista d'ID d'articles únics:
-article_model = tf.keras.Sequential([
-  tf.keras.layers.StringLookup(
-      vocabulary=unic_article_id, mask_token=None),
-  tf.keras.layers.Embedding(len(unic_article_id) + 1, embedding_dimension)
-])
+Així, per crear el model:
+```python
+  customer_model = tf.keras.Sequential([
+    tf.keras.layers.StringLookup(
+        vocabulary=unic_customer_id, mask_token=None),  
+    tf.keras.layers.Embedding(len(unic_customer_id) + 1, embedding_dimension)
+  ])
+```
+Després de diferents proves, hem considerat que el millor valor de l'hiperperàmetre *embedding_dimension* és 64.
 
-StringLookup() es una capa de preprocessament que mapa característiques de cadena amb índexs enters.
+### Candidate Model
+La creació del *Candidate Model* segueix el mateix procés que el *Query Model*, però utilitzant ara la llista d'ID d'articles únics:
+
+```python
+  article_model = tf.keras.Sequential([
+    tf.keras.layers.StringLookup(
+        vocabulary=unic_article_id, mask_token=None),
+    tf.keras.layers.Embedding(len(unic_article_id) + 1, embedding_dimension)
+  ])
+```
 
 Ara que ja tenim els dos submodels creats, els unifiquem per crear el nostre model de recomanació. 
+
 TensorFlow Recommenders exposa una classe de model base (tfrs.models.Model) que facilita la creació dels models. El que cal fer és configurar els components en el mètode init i implementar el mètode compute_loss, agafant les característiques sense processar i tornant un valor de pèrdua.
 El model base s'encarrega de crear el cicle d'entrenament apropiat per tal que s'ajusti al nostre model.
-class RetrivalModel(tfrs.Model):
 
-```python    
+```python   
+class RetrivalModel(tfrs.Model): 
+
     def __init__(self, customer_model, article_model):
         super().__init__()
         self.article_model: tf.keras.Model = article_model
