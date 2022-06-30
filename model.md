@@ -25,30 +25,21 @@ En aquest cas, per recuperar els millors candidats d'una consulta determinada, u
 
 En aquest model, utilitzarem el dataset de “transactions”. Aquest dataset el tractem i el dividim en dos conjunts de test i train.
 
-~~•	El subconjunt d'entrenament s'utilitza per entrenar les dades que donem al sistema de recomanació, per tant, són dades “visibles” pel model. Els resultats obtinguts amb aquest subconjunt no s'han de tenir en compte, ja que no representen el rendiment real.
-•	El subconjunt de test són dades no visibles pel model, amb les quals es mesura el rendiment real del sistema. L'objectiu és maximitzar el conjunt d'entrenament per poder tenir més dades i ajustar millor el model, però també es vol maximitzar el conjunt de tests per poder obtenir millors resultats en tenir més informació sobre la qual mesurar el sistema.~~
-
 En un sistema de recomanació, una bona manera de dividir-lo és en un moment indicat T. És a dir, les dades fins al moment T s'utilitzen per predir les següents observacions. El nostre T es 2020-09-01.
 
-<div class="code-example" markdown="1">
+
 ```python
   transactions = transactions[transactions['t_dat'] >='2019-09-22']
   transactions_train = transactions[transactions['t_dat'] <'2020-09-01']
 ```
-</div>
-
-~~transactions_train.head()
-transactions_test.head()~~
 
 A continuació, busquem els clients i els articles únics presents dels datatset *customers* i *articles* . És important que tant els clients com els articles siguin únics perquè necessitem mapejar els valors de les variables categòriques per després utilitzar-les en el nostre model com a vectors. És a dir, necessitem un diccionari d'aquestes dues variables per crear el nostre model. Són elements vectoritzats que s'inseriran i faran servir com a referència a les capes del model
 
-<div class="code-example" markdown="1">
 ```python
   unic_customer_id = df_customer.customer_id.unique()
   unic_article_id = df_article.article_id.unique()
   article_slices = tf.data.Dataset.from_tensor_slices(dict(df_article[articles = article_slices.map(lambda x: x['article_id'])
 ```
-</div>
 
 ## Retrival Stage
 Com hem mencionat anteriorment, utilitzarem un Retrieval Model constituit per dos sub-models. Així doncs, podem crear cada model per separat (Query Model i Candidate Model) i després combinar-los en un model final.
@@ -81,7 +72,8 @@ Ara que ja tenim els dos submodels creats, els unifiquem per crear el nostre mod
 TensorFlow Recommenders exposa una classe de model base (tfrs.models.Model) que facilita la creació dels models. El que cal fer és configurar els components en el mètode init i implementar el mètode compute_loss, agafant les característiques sense processar i tornant un valor de pèrdua.
 El model base s'encarrega de crear el cicle d'entrenament apropiat per tal que s'ajusti al nostre model.
 class RetrivalModel(tfrs.Model):
-    
+
+```python    
     def __init__(self, customer_model, article_model):
         super().__init__()
         self.article_model: tf.keras.Model = article_model
@@ -99,6 +91,7 @@ class RetrivalModel(tfrs.Model):
 
         # Task calcula la pèrdua i les mètriques
         return self.task(customer_embeddings, article_embeddings,compute_metrics=not training)
+```
 
 FactorizedTopK() calcula les mètriques dels K candidats principals que apareixen mitjançant un model de recuperació.
 
