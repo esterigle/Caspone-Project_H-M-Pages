@@ -81,7 +81,7 @@ La creació del *Candidate Model* segueix el mateix procés que el *Query Model*
 
 Ara que ja tenim els dos submodels creats, els unifiquem per crear el model de recomanació. 
 
-~~TensorFlow Recommenders exposa una classe de model base (tfrs.models.Model) que facilita la creació dels models. El que cal fer és configurar els components en el mètode init i implementar el mètode compute_loss, agafant les característiques sense processar i tornant un valor de pèrdua. El model base s’encarrega de crear el cicle d’entrenament apropiat per tal que s’ajusti al nostre model.~~
+Per facilitar la creació del model, utilitzem la classe de TensorFlow Recommenders que exposa un model base (tfrs.models.Model). Aquest model base s'encarrega de crear el cicle d'entrenament apropiat per tal que es vagi ajustant. De manera que només cal configurar els components en el mètode *__init__* i implementar el mètode *compute_loss*.
 
 ```python   
 class RetrivalModel(tfrs.Model): 
@@ -91,8 +91,8 @@ class RetrivalModel(tfrs.Model):
         self.article_model: tf.keras.Model = article_model
         self.customer_model: tf.keras.Model = customer_model
         self.task = tfrs.tasks.Retrieval(
-        metrics=tfrs.metrics.FactorizedTopK(
-            candidates=articles.batch(128).map(self.article_model),            
+            metrics=tfrs.metrics.FactorizedTopK(
+              candidates=articles.batch(128).map(self.article_model),            
             ),
         )        
 
