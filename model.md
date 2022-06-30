@@ -44,8 +44,11 @@ A continuació, busquem els clients i els articles únics presents dels datatset
 ## Retrival Stage
 Com hem mencionat anteriorment, utilitzarem un Retrieval Model constituit per dos sub-models. Així doncs, podem crear cada model per separat (Query Model i Candidate Model) i després combinar-los en un model final.
 La idea principal és el que es representa a la figura següent:
+
 ![Retrieval Model](model1.png)
+
 En particular, pel nostre cas:
+
 ![Retrieval Model Aplicat](model2.png)
 
 
