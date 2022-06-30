@@ -17,6 +17,7 @@ En general, els sistemes de recomanació consten de dues fases:
 Els Retrieval Models normalment consten de dos sub-models: 
 -	*Query Model*: per les dades de consulta 
 -	*Candidate Model*: per les dades candidates. 
+
 Construirem i entrenarem un model de dues torres o dos submodels (torre de consultes i torre candidata) utilitzant el conjunt de dades explicat anteriorment
 Per implementar-ho, utilitzarem els mòduls de TensorFlow següents: tfrs.tasks.Retrieval i tfrs.metrics.FactorizedTopK
 
