@@ -44,8 +44,8 @@ A continuació, busquem els clients i els articles únics presents dels datatset
 ```
 </div>
 
-Retrival Stage
-Ara que ja hem preparat les dades, creem el model. . L'arquitectura d'aquest model és clau. Com hem mencionat anteriorment, utilitzarem un Retrieval Modelconstituit per dos sub-models. Així doncs, podem crear cada model per separat (Query Model i Candidate Model) i després combinar-los en un model final.
+## Retrival Stage
+Ara que ja hem preparat les dades, creem el model. L'arquitectura d'aquest model és clau. Com hem mencionat anteriorment, utilitzarem un Retrieval Modelconstituit per dos sub-models. Així doncs, podem crear cada model per separat (Query Model i Candidate Model) i després combinar-los en un model final.
 La idea principal és el que es representa a la figura següent:
 Dibujo 1
 En particular, pel nostre cas:
@@ -114,7 +114,7 @@ history = model.fit(
 A continuació, avaluem el model. ¿no ha ido como qeremos?
 model.evaluate(test_ds, return_dict=True)
 
-Ranking Statge
+## Ranking Statge
 En aquesta fase, com hem explicat al principi s'analitzen les sortides del Retrieval Model i s'afinen per seleccionar el millor conjunt de recomanacions. En aquest cas, per recuperar els millors candidats d'una consulta determinada, utilitzarem la llibreria de TensorFlow ScaNN. En concret, per cada usuari, recuperarem 12 etiquetes, que es corresponen als articles previstos que un client pot comprar en els següents 7 dies.
 scann_index = tfrs.layers.factorized_top_k.ScaNN(model.customer_model, k = 12 )
 scann_index.index_from_dataset(
