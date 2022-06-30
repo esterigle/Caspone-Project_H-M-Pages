@@ -10,7 +10,7 @@ nav_order: 5
 Propostes de millora
 {: .fs-6 .fw-300 }
 
-En aquest apartat s'expliquen algunes propostes a tenir en compte per tal de millorar el model exposat en l'apartat anterior.
+En aquest apartat s'expliquen algunes propostes a tenir en compte per tal de millorar el model exposat a l'apartat anterior.
 
 Com hem vist anteriorment, les recomanacions s'han realitzat utilizant simplement els codis identificatius dels clients i dels articles. Per l'anàlisi que hem fet de cada un dels datasets (veure apartat *[Dades](dades.md)*), considerem que hi ha certes variables que poden influir positivament en els resultats. Entre elles destaquem:
 
