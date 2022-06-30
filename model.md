@@ -30,6 +30,13 @@ En aquest model, utilitzarem el dataset de “transactions”. Aquest dataset el
 
 En un sistema de recomanació, una bona manera de dividir-lo és en un moment indicat T. És a dir, les dades fins al moment T s'utilitzen per predir les següents observacions. El nostre T es 2020-09-01.
 
+<div class="code-example" markdown="1">
+```python
+  transactions = transactions[transactions['t_dat'] >='2019-09-22']
+  transactions_train = transactions[transactions['t_dat'] <'2020-09-01']
+```
+</div>
+
 ~~transactions_train.head()
 transactions_test.head()~~
 
@@ -39,17 +46,18 @@ A continuació, busquem els clients i els articles únics presents dels datatset
 ```python
   unic_customer_id = df_customer.customer_id.unique()
   unic_article_id = df_article.article_id.unique()
-  article_slices = tf.data.Dataset.from_tensor_slices(dict(df_article[
-  articles = article_slices.map(lambda x: x['article_id'])
+  article_slices = tf.data.Dataset.from_tensor_slices(dict(df_article[articles = article_slices.map(lambda x: x['article_id'])
 ```
 </div>
 
 ## Retrival Stage
-Ara que ja hem preparat les dades, creem el model. L'arquitectura d'aquest model és clau. Com hem mencionat anteriorment, utilitzarem un Retrieval Modelconstituit per dos sub-models. Així doncs, podem crear cada model per separat (Query Model i Candidate Model) i després combinar-los en un model final.
+Com hem mencionat anteriorment, utilitzarem un Retrieval Model constituit per dos sub-models. Així doncs, podem crear cada model per separat (Query Model i Candidate Model) i després combinar-los en un model final.
 La idea principal és el que es representa a la figura següent:
-Dibujo 1
+![Retrieval Model](model1.png)
 En particular, pel nostre cas:
-Dibujo 2
+![Retrieval Model Aplicat](model2.png)
+
+
 En primer lloc, fixem la dimensió de l'embedding:
 embedding_dimension = 64
 
