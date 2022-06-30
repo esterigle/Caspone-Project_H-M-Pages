@@ -6,7 +6,7 @@ parent: Dades
 
 ## Articles
 
-El dataset d'articles conté informació sobre cada un dels productes disponible per a la compra. En particular, per a cada article hi ha la següent informació:
+El dataset d'articles conté informació sobre cada un dels productes disponible per a la compra (105542 articles únics). En particular, per a cada article hi ha la següent informació:
 
 | article_id                     | Identificador de l'article                                                        |
 | product_code                   | Codi identificatiu de l'article                                                   |
