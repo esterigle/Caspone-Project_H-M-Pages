@@ -22,5 +22,3 @@ plugins:
   - jekyll-remote-theme
 
 # search_enabled: false
-
-theme: jekyll-theme-cayman
