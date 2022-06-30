@@ -16,7 +16,7 @@ En general, els sistemes de recomanació consten de dues fases:
 •	**Retrieval Stage**: en aquesta etapa es crea un model amb el qual s'obté un conjunt inicial de centenars de candidats, d'entre tots els candidats possibles. L'objectiu principal del model és eliminar de manera eficient tots els candidats pels quals l'usuari no estigui interessat.
 Els Retrieval Models normalment consten de dos sub-models: 
 -	*Query Model*: per les dades de consulta 
--	*Candidate Model*: per les dades candidates. 
+-	*Candidate Model*: per les dades candidates
 
 Construirem i entrenarem un model de dues torres o dos submodels (torre de consultes i torre candidata) utilitzant el conjunt de dades explicat anteriorment
 Per implementar-ho, utilitzarem els mòduls de TensorFlow següents: tfrs.tasks.Retrieval i tfrs.metrics.FactorizedTopK
