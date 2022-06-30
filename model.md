@@ -56,7 +56,7 @@ En particular, pel nostre cas:
 ### Query Model
 Per definir el *Query Model* utilitzem les següents capes de Keras de manera seqüencial:
 - *StringLookup*: és una capa de preprocessament que mapeja característiques de cadena amb índexs enters, en aquest cas ens permet convertir els ID dels clients en números enters. 
-- *Embedding*: 
+- *Embedding*: és una capa que converteix nombres enters positus en vactors densos de dimensió fixa.
 
 Així, per crear el model:
 ```python
@@ -105,7 +105,7 @@ class RetrivalModel(tfrs.Model):
         return self.task(customer_embeddings, article_embeddings,compute_metrics=not training)
 ```
 
-Observem que hem utilitzat *FactorizedTopK* com a mètrica, ja que és una funció que calcula les mètriques dels K candidats principals que apareixen mitjançant un model de recomanació.
+Observem que hem utilitzat *FactorizedTopK* com a mètrica. El que fa es calcular les mètriques dels K candidats principals que apareixen mitjançant un *Retrieval model*. En particular, s'utilitza la mètrica predeterminada que *top K categorical accuracy* (màxima precisió categòrica K), és a dir, calcula amb quina freqüència el candidat veritable es troba entre els K candidats principals per a una consulta determinada.
 
 Finalment, amb el model ja definit, podem ajustar i avaluar el model utilitzant les crides estàndard de Keras:
 
