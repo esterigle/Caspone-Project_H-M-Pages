@@ -8,30 +8,39 @@ nav_order: 4
 {: .fs-9 }
 
 L'objectiu del model és recomanar productes de H&M als seus clients. És a dir, donat un conjunt d'observacions usuari-article, proporcionar un ranking adequat per cada usuari.
-Per fer-ho, utilitzarem la llibreria de TensorFlow Recommenders (TFRS), que permet crear models de sistemes de recomanació.
+Per fer-ho, utilitzarem la llibreria de **TensorFlow Recommenders (TFRS)**, que permet crear models de sistemes de recomanació.
+
+
 En general, els sistemes de recomanació consten de dues fases:
-•	Retrieval Stage: en aquesta etapa es crea un model amb el qual s'obté un conjunt inicial de centenars de candidats, d'entre tots els candidats possibles. L'objectiu principal del model és eliminar de manera eficient tots els candidats pels quals l'usuari no estigui interessat.
+
+•	**Retrieval Stage**: en aquesta etapa es crea un model amb el qual s'obté un conjunt inicial de centenars de candidats, d'entre tots els candidats possibles. L'objectiu principal del model és eliminar de manera eficient tots els candidats pels quals l'usuari no estigui interessat.
 Els Retrieval Models normalment consten de dos sub-models: 
--	Query Model: per les dades de consulta 
--	Candidate Model: per les dades candidates. 
+-	*Query Model*: per les dades de consulta 
+-	*Candidate Model*: per les dades candidates. 
 Construirem i entrenarem un model de dues torres o dos submodels (torre de consultes i torre candidata) utilitzant el conjunt de dades explicat anteriorment
 Per implementar-ho, utilitzarem els mòduls de TensorFlow següents: tfrs.tasks.Retrieval i tfrs.metrics.FactorizedTopK
 
-•	Ranking Stage: en aquesta etapa s'analitzen les sortides del Retrieval Model i s'afinen per seleccionar el millor conjunt de recomanacions. És a dir, l'objectiu principal d'aquesta fase és reduir el conjunt d'elements que poden interessar a l'usuari.
+•	**Ranking Stage**: en aquesta etapa s'analitzen les sortides del Retrieval Model i s'afinen per seleccionar el millor conjunt de recomanacions. És a dir, l'objectiu principal d'aquesta fase és reduir el conjunt d'elements que poden interessar a l'usuari.
 En aquest cas, per recuperar els millors candidats d'una consulta determinada, utilitzarem la llibreria de TensorFlow ScaNN. En concret, per cada usuari, recuperarem 12 etiquetes, que es corresponen als articles previstos que un client pot comprar en els següents 7 dies.
 
-En aquest model, utilitzarem el dataset de “transactions”. Aquest dataset el tractem i el dividim en dos conjunts de test i train. 
-•	El subconjunt d'entrenament s'utilitza per entrenar les dades que donem al sistema de recomanació, per tant, són dades “visibles” pel model. Els resultats obtinguts amb aquest subconjunt no s'han de tenir en compte, ja que no representen el rendiment real.
-•	El subconjunt de test són dades no visibles pel model, amb les quals es mesura el rendiment real del sistema. L'objectiu és maximitzar el conjunt d'entrenament per poder tenir més dades i ajustar millor el model, però també es vol maximitzar el conjunt de tests per poder obtenir millors resultats en tenir més informació sobre la qual mesurar el sistema.
-En un sistema de recomanació, una bona manera de dividir-lo és en un moment indicat T. És a dir, les dades fins al moment T s'utilitzen per predir les següents observacions. El nostre T es 2020-09-01.
-transactions_train.head()
-transactions_test.head()
+En aquest model, utilitzarem el dataset de “transactions”. Aquest dataset el tractem i el dividim en dos conjunts de test i train.
 
-A continuació, busquem els clients i els articles únics presents dels datatset «customer» y «article» . És important que tant els clients com els articles siguin únics perquè necessitem mapejar els valors de les variables categòriques per després utilitzar-les en el nostre model con a vectors. És a dir, necessitem un diccionari d'aquestes dues variables per crear el nostre model. Són elements vectoritzats que s'inseriran i faran servir com a referència a les capes del model
-unic_customer_id = df_customer.customer_id.unique()
-unic_article_id = df_article.article_id.unique()
-article_slices = tf.data.Dataset.from_tensor_slices(dict(df_article[
-articles = article_slices.map(lambda x: x['article_id'])
+~~•	El subconjunt d'entrenament s'utilitza per entrenar les dades que donem al sistema de recomanació, per tant, són dades “visibles” pel model. Els resultats obtinguts amb aquest subconjunt no s'han de tenir en compte, ja que no representen el rendiment real.
+•	El subconjunt de test són dades no visibles pel model, amb les quals es mesura el rendiment real del sistema. L'objectiu és maximitzar el conjunt d'entrenament per poder tenir més dades i ajustar millor el model, però també es vol maximitzar el conjunt de tests per poder obtenir millors resultats en tenir més informació sobre la qual mesurar el sistema.~~
+
+En un sistema de recomanació, una bona manera de dividir-lo és en un moment indicat T. És a dir, les dades fins al moment T s'utilitzen per predir les següents observacions. El nostre T es 2020-09-01.
+
+~~transactions_train.head()
+transactions_test.head()~~
+
+A continuació, busquem els clients i els articles únics presents dels datatset *customers* i *articles* . És important que tant els clients com els articles siguin únics perquè necessitem mapejar els valors de les variables categòriques per després utilitzar-les en el nostre model com a vectors. És a dir, necessitem un diccionari d'aquestes dues variables per crear el nostre model. Són elements vectoritzats que s'inseriran i faran servir com a referència a les capes del model
+
+<div class="code-example" markdown="1">
+  unic_customer_id = df_customer.customer_id.unique()
+  unic_article_id = df_article.article_id.unique()
+  article_slices = tf.data.Dataset.from_tensor_slices(dict(df_article[
+  articles = article_slices.map(lambda x: x['article_id'])
+</div>
 
 Retrival Stage
 Ara que ja hem preparat les dades, creem el model. . L'arquitectura d'aquest model és clau. Com hem mencionat anteriorment, utilitzarem un Retrieval Modelconstituit per dos sub-models. Així doncs, podem crear cada model per separat (Query Model i Candidate Model) i després combinar-los en un model final.
