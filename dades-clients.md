@@ -6,7 +6,7 @@ parent: Dades
 
 ## Clients
 
-El dataset de clients conté informació sobre cada un dels clients. En particular, per a cada consumidor hi ha la següent informació:
+El dataset de clients conté informació sobre cada un dels clients (1371980 clients únics). En particular, per a cada consumidor hi ha la següent informació:
 
 | customer_id             | Identificador del client                                                          |
 | FN                      | Informació sobre si el client rep *Fashion News*                                  |
