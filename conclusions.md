@@ -14,3 +14,4 @@ En aquest apartat volem comentar alguns dels inconvenients que ens hem trobat al
 
 En primer lloc, la gran quantitat de dades. Aquest fet fa que el procés d’execució de qualsevol model sigui molt lent, i per tant, no facilita treballar d’una manera àgil. Per tant, dificulta el fet de poder fer diferents proves, cosa que implica que el resultat del model molt millorable.
 
+Per altra banda, hem trobat grans dificultats per afegir la metadata al model, per tal de millorar els resultats.
