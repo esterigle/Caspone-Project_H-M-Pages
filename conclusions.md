@@ -22,7 +22,12 @@ nav_order: 6
 ## Alternatives
 Com hem comentat abans podríem millorar el model presentat. Aquí proposem diferents alternatives per fer-ho:
 -	Es pot provar de veure con afecta l'eficiència tocant més els hiperparàmetres esmentats anteriorment.
--	També es podria fer proves canviant o afegint capes de Keras al model. Com per exemple, Long short-term memory (LSTM) o Dense. 
+-	També es podria fer proves canviant o afegint capes de Keras al model. Com per exemple, Long short-term memory (LSTM) o Dense.
+- Considerem que hi ha certes variables que poden influir positivament en els resultats. Entre elles destaquem:
+  - **Edat dels consumidors**: donar un pes important al tipus de producte que es compra segons l'edat dels consumidors (en particular, per rangs d'edat).
+  - **Popularitat dels productes**: donar un pes més elevat a aquells productes (o tipus de productes) que es venen amb més freqüència al llarg del temps.
+  - **Articles comprats junts**: estudiar quins articles acostumen a comprar-se de manera conjunta i aplicar-ho al model pot millorar els resultats.
+  - **Data de compra dels productes**: tenir en compte si els productes es continuen venent o ja s'han deixat de produir.
 
 
 
