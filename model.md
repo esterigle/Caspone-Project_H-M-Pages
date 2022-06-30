@@ -127,7 +127,7 @@ history = model.fit(
     verbose=1)
 ```
 
-## Ranking Statge
+## Ranking Stage
 En aquesta fase, com hem explicat al principi s'analitzen les sortides del Retrieval Model i s'afinen per seleccionar el millor conjunt de recomanacions. En aquest cas, per recuperar els millors candidats d'una consulta determinada, utilitzarem la llibreria de TensorFlow *ScaNN*. En concret, per cada usuari, recuperarem 12 etiquetes, que es corresponen als articles previstos que un client pot comprar en els següents 7 dies.
 
 ```python
