@@ -5,7 +5,7 @@ parent: Dades
 ---
 
 ## Transaccions
-El conjunt de transaccions conté informació sobre un historial de compres. En particular, per a cada transacció hi ha la següent informació:
+El conjunt de transaccions conté informació sobre un historial de compres (31788324 transaccions). En particular, per a cada transacció hi ha la següent informació:
 
 | t_dat             | Data de la transacció                                                             |
 | customer_id       | Identificador del client que ha realitzat la compra                               |
