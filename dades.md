@@ -18,6 +18,7 @@ En particular, treballarem amb els següents 3 conjunts de dades:
 -	[Transaccions](dades-transaccions.md)
 -	[Articles](dades-articles.md)
 -	[Clients](dades-clients.md)
+-	[Relacions](dades-relacions.md)
 
 A continuació, en els respectius subapartats, veurem en més detall quina informació conté cada un dels conjunts.
 
